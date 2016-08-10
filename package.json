@@ -1,0 +1,26 @@
+{
+  "name": "adv-fe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andbilous/adv-fe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andbilous/adv-fe/issues"
+  },
+  "homepage": "https://github.com/andbilous/adv-fe#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "latest": "^0.2.0",
+    "run-sequence": "^1.2.2"
+  }
+}

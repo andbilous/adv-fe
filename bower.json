@@ -1,0 +1,24 @@
+{
+  "name": "adv-fe",
+  "homepage": "https://github.com/andbilous/adv-fe",
+  "authors": [
+    "Andriy Bilous <andbilous@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "1.8.3",
+    "backbone": "<2.0.0",
+    "react": ">0.1.0",
+    "handlebars": "^4.0.5"
+  }
+}
