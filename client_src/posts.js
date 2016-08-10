@@ -7,16 +7,30 @@ $( document ).ready( function () {
     var postTemplateRaw = $('#post-preview-template').html();
     var postsTemplateRaw = $('#posts-list-template').html();
     var navigationTemplateRaw = $('#navigation-template').html();
+    var postsJsonTemplateRaw = $('#posts-json-template').html();
+    var postsTableTemplateRaw = $('#posts-table-template').html();
     var postTemplate = Handlebars.compile(postTemplateRaw);
     var postsTemplate = Handlebars.compile(postsTemplateRaw);
     var navigationTemplate = Handlebars.compile(navigationTemplateRaw);
+    var postsJsonTemplate = Handlebars.compile(postsJsonTemplateRaw);
+    var postsTableTemplate = Handlebars.compile(postsTableTemplateRaw);
 
     Handlebars.registerPartial('post-preview', postTemplateRaw);
+    
     Handlebars.registerHelper('bold', function (options) {
         return new Handlebars.SafeString('<b>' + 
                 Handlebars.Utils.escapeExpression(options.hash.text) + '</b>'
         );
     });
+    Handlebars.registerHelper('json', function(options){
+    		document.write('<pre>' +JSON.stringify({options}, null,1)+'</pre>');
+     
+        ;		
+    });
+    Handlebars.registerHelper('table',function())
+    {
+    	document.write('<i>' +this.description)+'</i>');
+    }
     Handlebars.registerHelper('nav', function (options) {
         return Array.apply(null, Array(options.hash.count)).map(function(v,i) {
             return options.fn({
@@ -32,8 +46,10 @@ $( document ).ready( function () {
     function render() {
         renderPosts();
         renderNavigation();
+        renderJson();
+     //   renderStrippedTable();
     }
-
+   
     function subscribeHandlers() {
         $( '.posts-container__navigation' ).click( function( event ) {
             var selected = parseInt($(event.target).data('id')) - 1;
@@ -68,5 +84,25 @@ $( document ).ready( function () {
         );
 
         jQuery('.posts-container__list').html(html);
+    }
+    function renderJson(){
+    
+       
+        	 var postsForRender = posts.slice( selectedPage * perPage, selectedPage * perPage + perPage );
+        html= postsTableTemplate(
+           {
+           posts : postsForRender
+           }
+        );
+    
+    }
+    
+    function renderStrippedTable(){
+    	 var postsForRender = posts.slice( selectedPage * perPage, selectedPage * perPage + perPage );
+        html= postsJsonTemplate(
+           {
+           posts : postsForRender
+           }
+        );
     }
 });
