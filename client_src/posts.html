@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><title>ADV_FE APP | Lesson1 | Stage 1</title></title>
+        <title>ADV_FE APP | Lesson1 | Stage 1</title>
         <link rel="stylesheet" href="/style.css" />
     </head>
 
@@ -74,14 +74,15 @@
         </script>
         
         <script type="text/x-handlebars-template" id="posts-json-template">
-
-{{json posts}}
+       {{json posts}}
 </script>
 
-<script type="text/x-handlebars-template" id="posts-table-template">
-{{#table posts}}
-       {{description}}
-  {{/table}}
+ <script type="text/x-handlebars-template" id="posts-table-template">
+
+  
+  {{#each posts}}
+    {{{table}}}
+  {{/each}}
 
 </script>
 
